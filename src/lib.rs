@@ -34,6 +34,7 @@ pub fn find_certs_dirs() -> Vec<PathBuf> {
         "/etc/ssl",
         "/data/data/com.termux/files/usr/etc/tls",
         "/boot/system/data/ssl",
+        "/var/lib/ca-certificates/openssl",         // SLES 12+
     ].iter().map(|s| PathBuf::from(*s)).filter(|p| {
         fs::metadata(p).is_ok()
     }).collect()
